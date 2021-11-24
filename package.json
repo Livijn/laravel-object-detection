@@ -1,0 +1,10 @@
+{
+  "private": true,
+  "license": "ISC",
+  "dependencies": {
+    "@tensorflow-models/coco-ssd": "^2.2.2",
+    "@tensorflow/tfjs": "^3.11.0",
+    "@tensorflow/tfjs-node": "^3.11.0",
+    "node-fetch": "^2.6.6"
+  }
+}
