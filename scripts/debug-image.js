@@ -1,5 +1,5 @@
 const fs = require('fs');
-const { Image, loadImage, createCanvas } = require('canvas')
+const { loadImage, createCanvas } = require('canvas')
 
 module.exports = (buffer, predictions) => {
   loadImage(buffer).then((image) => {

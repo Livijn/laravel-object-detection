@@ -10,8 +10,9 @@ class LaravelObjectDetection
         $this->validateUrl($imageUrl);
 
         $debug = (int) $debug;
+        $path = __DIR__ . "/../scripts/index.js";
 
-        $process = Process::fromShellCommandline("DEBUG_IMAGE={$debug} node scripts/index.js $imageUrl");
+        $process = Process::fromShellCommandline("DEBUG_IMAGE={$debug} node $path $imageUrl");
 
         $process->mustRun();
 
