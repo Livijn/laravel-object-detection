@@ -5,11 +5,13 @@ use Symfony\Component\Process\Process;
 
 class LaravelObjectDetection
 {
-    public function getObjectsFromImageUrl(string $imageUrl): ImageObjectCollection
+    public function getObjectsFromImageUrl(string $imageUrl, bool $debug = false): ImageObjectCollection
     {
         $this->validateUrl($imageUrl);
 
-        $process = new Process(['node', 'scripts/index.js', $imageUrl]);
+        $debug = (int) $debug;
+
+        $process = Process::fromShellCommandline("DEBUG_IMAGE={$debug} node scripts/index.js $imageUrl");
 
         $process->mustRun();
 

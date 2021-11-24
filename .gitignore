@@ -3,3 +3,5 @@ node_modules
 composer.lock
 .idea
 .phpunit*
+debug-image.png
+debug-image.jpg
