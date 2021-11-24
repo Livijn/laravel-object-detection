@@ -17,6 +17,9 @@ composer require livijn/laravel-object-detection
 
 ```php
 LaravelObjectDetection::getObjectsFromImageUrl('https://some-url.com/some-image.jpg');
+
+// Returns an ImageObjectCollection
+// [{"class":"dog","score":0.973773181438446,"boundingBox":[239.84360694885254,75.59387746453285,505.188524723053,590.4131692349911]}]
 ```
 
 ### Testing
