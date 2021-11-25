@@ -47,7 +47,10 @@
         }
     },
     "scripts": {
-        "post-install-cmd": [
+        "post-package-install": [
+            "npm install"
+        ],
+        "post-package-update": [
             "npm install"
         ]
     }
