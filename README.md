@@ -27,6 +27,10 @@ If you are deploying on Laravel Forge, make sure you have sufficient node & npm 
 
 To update npm, just run `sudo npm install -g npm@latest` on your server.
 
+I have only verified this works with these versions: 
+* node >= 16 
+* npm >= 7
+
 ## Usage
 
 ```php
