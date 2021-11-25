@@ -45,5 +45,8 @@
                 "LaravelObjectDetection": "Livijn\\LaravelObjectDetection\\LaravelObjectDetectionFacade"
             }
         }
+    },
+    "scripts": {
+        "test": "vendor/phpunit/phpunit/phpunit"
     }
 }
