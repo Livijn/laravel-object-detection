@@ -22,6 +22,11 @@ You should att this to your `composer.json` file to ensure that our package is f
 }
 ```
 
+### Installation on Laravel Forge
+If you are deploying on Laravel Forge, make sure you have sufficient node & npm versions. You can read [this article on how to update nodejs](https://blog.adaptivemedia.se/upgrade-only-nodejs-on-a-laravel-forge-server-ubuntu-1804) on Forge. 
+
+To update npm, just run `sudo npm install -g npm@latest` on your server.
+
 ## Usage
 
 ```php
