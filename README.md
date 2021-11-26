@@ -1,4 +1,4 @@
-# laravel-object-detection
+# Laravel Object Detection
 
 [![Latest Version on Packagist](https://img.shields.io/packagist/v/livijn/laravel-object-detection.svg?style=flat-square)](https://packagist.org/packages/livijn/laravel-object-detection)
 [![Total Downloads](https://img.shields.io/packagist/dt/livijn/laravel-object-detection.svg?style=flat-square)](https://packagist.org/packages/livijn/laravel-object-detection)
