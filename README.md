@@ -5,6 +5,8 @@
 
 This package identifies objects in an image using Machine Learning, [TensorFlow](https://www.tensorflow.org/) and the [coco-ssd](https://github.com/tensorflow/tfjs-models/tree/master/coco-ssd) model.
 
+![Example](example.png)
+
 ## Installation
 
 You can install the package via composer:
