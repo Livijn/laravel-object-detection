@@ -15,7 +15,7 @@ You can install the package via composer:
 composer require livijn/laravel-object-detection
 ```
 
-You should att this to your `composer.json` file to ensure that our package is fully installed. 
+You should add this to your `composer.json` file to ensure that our package is fully installed. 
 ```
 "scripts": {
     "post-install-cmd": [
