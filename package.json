@@ -3,10 +3,15 @@
   "license": "ISC",
   "dependencies": {
     "@tensorflow-models/coco-ssd": "^2.2.2",
-    "@tensorflow/tfjs": "^3.21.0",
-    "@tensorflow/tfjs-node": "^3.21.0",
     "canvas": "^2.10.1",
-    "node-fetch": "^2.6.7", 
-    "node": "lts"
+    "node": "^16",
+    "node-fetch": "^2.6.7"
+  },
+  "peerDependencies": {
+    "@tensorflow/tfjs-backend-cpu": "^3.3.0",
+    "@tensorflow/tfjs-backend-webgl": "^3.3.0",
+    "@tensorflow/tfjs-node": "^3.3.0",
+    "@tensorflow/tfjs-core": "^3.3.0",
+    "@tensorflow/tfjs-converter": "^3.3.0"
   }
 }

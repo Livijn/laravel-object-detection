@@ -1,3 +1,5 @@
+require('@tensorflow/tfjs-backend-cpu');
+require('@tensorflow/tfjs-backend-webgl');
 const cocoSsd = require('@tensorflow-models/coco-ssd');
 const processImage = require('./process-image');
 const debugImage = require("./debug-image");
