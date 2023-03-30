@@ -1,4 +1,4 @@
-pip3 install mediapipe
-pip3 install mediapipe-silicon
-pip3 install requests
-pip3 install opencv-python
+pip install mediapipe
+pip install mediapipe-silicon
+pip install requests
+pip install opencv-python
