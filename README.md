@@ -18,7 +18,7 @@ composer require livijn/laravel-object-detection
 You should add this to your `composer.json` file to ensure that our package is fully installed. 
 ```
 "scripts": {
-    "post-install-cmd": [
+    "post-update-cmd": [
         "(cd vendor/livijn/laravel-object-detection && npm i)"
     ]
 }

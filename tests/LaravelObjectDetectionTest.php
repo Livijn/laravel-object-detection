@@ -1,7 +1,7 @@
 <?php
 namespace Livijn\LaravelObjectDetection\Tests;
 
-use Livijn\LaravelObjectDetection\ImageObjectCollection;
+use Livijn\LaravelObjectDetection\ImageObject;
 use Livijn\LaravelObjectDetection\LaravelObjectDetectionFacade;
 
 class LaravelObjectDetectionTest extends TestCase
@@ -9,22 +9,24 @@ class LaravelObjectDetectionTest extends TestCase
     /** @test It can get the bounding box for a jpeg image */
     public function it_can_get_the_bounding_box_for_a_jpeg_image()
     {
-        $collection = LaravelObjectDetectionFacade::getObjectsFromImageUrl('https://images.pexels.com/photos/97082/weimaraner-puppy-dog-snout-97082.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500');
+        $object = LaravelObjectDetectionFacade::getObjectsFromImageUrl('https://images.pexels.com/photos/97082/weimaraner-puppy-dog-snout-97082.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500');
 
-        $this->assertInstanceOf(ImageObjectCollection::class, $collection);
-        $this->assertCount(1, $collection);
-        $this->assertEquals("dog", $collection->first()->class);
+        $this->assertInstanceOf(ImageObject::class, $object);
+        $this->assertEquals(0.5281647, $object->score);
     }
 
     /** @test It can debug the image */
     public function it_can_debug_the_image()
     {
-        unlink(__DIR__ . '/../debug-image.png');
-        $this->assertFileDoesNotExist(__DIR__ . '/../debug-image.png');
+        if (file_exists(__DIR__ . '/../scripts/tmp/out.jpg')) {
+            unlink(__DIR__ . '/../scripts/tmp/out.jpg');
+        }
+        
+        $this->assertFileDoesNotExist(__DIR__ . '/../scripts/tmp/out.jpg');
 
         LaravelObjectDetectionFacade::getObjectsFromImageUrl('https://images.pexels.com/photos/97082/weimaraner-puppy-dog-snout-97082.jpeg?auto=compress&cs=tinysrgb&dpr=2&w=500', 1);
 
-        $this->assertFileExists(__DIR__ . '/../debug-image.png');
+        $this->assertFileExists(__DIR__ . '/../scripts/tmp/out.jpg');
     }
 
     /** @test It throws an exception when wrong format */
