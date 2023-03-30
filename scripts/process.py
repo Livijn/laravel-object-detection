@@ -10,10 +10,12 @@ import requests
 import json
 from google.protobuf.json_format import MessageToJson
 import os
+import pathlib
 
-TMP_IN_IMG = "tmp/in.jpg"
-TMP_OUT_IMG = "tmp/out.jpg"
-TMP_OUT_JSON = "tmp/out.json"
+path = str(pathlib.Path(__file__).resolve().parent)
+TMP_IN_IMG = path+"/tmp/in.jpg"
+TMP_OUT_IMG = path+"/tmp/out.jpg"
+TMP_OUT_JSON = path+"/tmp/out.json"
 
 def delete_file(file):
     if os.path.exists(file):
