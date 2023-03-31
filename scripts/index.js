@@ -3,6 +3,7 @@ require('@tensorflow/tfjs-backend-webgl');
 const cocoSsd = require('@tensorflow-models/coco-ssd');
 const processImage = require('./process-image');
 const debugImage = require("./debug-image");
+const { loadImage } = require('canvas')
 
 if (process.argv.length < 3) throw 'No image specified.';
 
@@ -12,10 +13,16 @@ if (process.argv.length < 3) throw 'No image specified.';
   const model = await cocoSsd.load();
 
   const predictions = await model.detect(image.tensor);
+  
+  const loadedImage = await loadImage(image.buffer);
 
   if (parseInt(process.env.DEBUG_IMAGE)) {
-    debugImage(image.buffer, predictions);
+    debugImage(loadedImage, predictions);
   }
 
-  console.log(JSON.stringify(predictions, null, 2));
+  console.log(JSON.stringify({
+    width: loadedImage.naturalWidth,
+    height: loadedImage.naturalHeight,
+    predictions,
+  }, null, 2));
 })();

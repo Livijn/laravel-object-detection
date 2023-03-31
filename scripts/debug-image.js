@@ -1,27 +1,25 @@
 const fs = require('fs');
-const { loadImage, createCanvas } = require('canvas')
+const { createCanvas } = require('canvas')
 
-module.exports = (buffer, predictions) => {
-  loadImage(buffer).then((image) => {
-    const canvas = createCanvas(image.width, image.height)
-    const ctx = canvas.getContext('2d')
+module.exports = (image, predictions) => {
+  const canvas = createCanvas(image.width, image.height)
+  const ctx = canvas.getContext('2d')
 
-    ctx.drawImage(image, 0, 0)
+  ctx.drawImage(image, 0, 0)
 
-    ctx.lineWidth = 8;
-    ctx.strokeStyle = 'green';
-    ctx.font = '20px Arial'
+  ctx.lineWidth = 8;
+  ctx.strokeStyle = 'green';
+  ctx.font = '20px Arial'
 
-    predictions.forEach(prediction => {
-      ctx.strokeRect(prediction.bbox[0], prediction.bbox[1], prediction.bbox[2], prediction.bbox[3]);
+  predictions.forEach(prediction => {
+    ctx.strokeRect(prediction.bbox[0], prediction.bbox[1], prediction.bbox[2], prediction.bbox[3]);
 
-      drawTextBG(ctx, prediction.class + ': ' + prediction.score, prediction.bbox[0], prediction.bbox[1]);
-    })
-
-    const out = fs.createWriteStream(__dirname + '/../debug-image.png')
-    const stream = canvas.createPNGStream()
-    stream.pipe(out)
+    drawTextBG(ctx, prediction.class + ': ' + prediction.score, prediction.bbox[0], prediction.bbox[1]);
   })
+
+  const out = fs.createWriteStream(__dirname + '/../debug-image.png')
+  const stream = canvas.createPNGStream()
+  stream.pipe(out)
 };
 
 const drawTextBG = (ctx, txt, x, y) => {
