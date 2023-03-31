@@ -12,12 +12,12 @@ class LaravelObjectDetection
         $debug = (int) $debug;
         $path = __DIR__ . "/../scripts/index.js";
 
-        $process = Process::fromShellCommandline("DEBUG_IMAGE={$debug} node $path $imageUrl");
+        $process = Process::fromShellCommandline("DEBUG_IMAGE={$debug} node $path '$imageUrl'");
 
         $process->mustRun();
 
         $response = $process->getOutput();
-
+        
         return ImageObjectCollection::fromJson($response);
     }
 
